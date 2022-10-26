@@ -1,12 +1,13 @@
 const mongoose = require('mongoose')
-mongoose.connect(PROCESS.ENV.MOGODB_URI)
+mongoose.connect(process.env.MONGODB_URI, { useUnifiedTopology: true, useNewUrlParser: true })
+
 const db = mongoose.connection
 
-db.on(error, () => {
+db.on('error', () => {
   console.log('mongoose connection failed.')
 })
 
-db.once(open, () => {
+db.once('open', () => {
   console.log('mongoose connected!')
 })
 
