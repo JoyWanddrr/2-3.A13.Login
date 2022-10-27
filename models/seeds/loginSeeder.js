@@ -32,7 +32,7 @@ const Login = require('../login')
 db.once('open', () => {
   Login.create(users)
     .then(() => {
-      console.log('users import done"')
+      console.log('users import done')
     })
     .catch(err => console.error(err))
 })
